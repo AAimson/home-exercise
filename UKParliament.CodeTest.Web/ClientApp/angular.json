@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "UKParliament.CodeTest.Web"
+  "defaultProject": "UKParliament.CodeTest.Web",
+  "cli": {
+    "analytics": false
+  }
 }

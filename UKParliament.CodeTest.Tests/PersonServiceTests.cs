@@ -2,7 +2,7 @@
 
 namespace UKParliament.CodeTest.Tests
 {
-    public class ExampleTest
+    public class PersonServiceTests
     {
         [Fact]
         public void Test1()
