@@ -13,7 +13,10 @@ namespace UKParliament.CodeTest.Web
 
             // Add services to the container.
 
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+            });
 
             builder.Services.AddDbContext<PersonManagerContext>(op => op.UseInMemoryDatabase("PersonManager"));
             builder.Services.AddScoped<IPersonService, PersonService>();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UKParliament.CodeTest.Data;
 using UKParliament.CodeTest.Services;
 using UKParliament.CodeTest.Web.ViewModels;
 
@@ -49,6 +50,35 @@ namespace UKParliament.CodeTest.Web.Controllers
                 Id = person.Id,
                 DateOfBirth = person.DateOfBirth
             }).ToList());
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> Post(PersonViewModel personViewModel)
+        {
+            var person = new Person
+            {
+                Address = personViewModel.Address,
+                DateOfBirth = personViewModel.DateOfBirth,
+                Name = personViewModel.Name
+            };
+
+            await _personService.Create(person);
+            return Ok(new { message = "Person created"} );
+        }
+        
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Update(int id, PersonViewModel personViewModel)
+        {
+            var person = new Person
+            {
+                Address = personViewModel.Address,
+                DateOfBirth = personViewModel.DateOfBirth,
+                Name = personViewModel.Name,
+                Id = id
+            };
+            
+            await _personService.Edit(person);
+            return Ok(new { message = "Person updated" });
         }
     }
 }

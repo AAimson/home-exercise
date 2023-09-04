@@ -73,7 +73,7 @@ namespace UKParliament.CodeTest.Tests
         }
         
         [Fact]
-        public async Task Get_SinglePersonDoesNotExist_BadResult()
+        public async Task GetById_SinglePersonDoesNotExist_BadResult()
         {
             // Arrange
             const int id = 1;
@@ -93,7 +93,7 @@ namespace UKParliament.CodeTest.Tests
         }
         
         [Fact]
-        public async Task Get_SinglePersonWhoExists_OkResult()
+        public async Task GetById_SinglePersonWhoExists_OkResult()
         {
             // Arrange
             const int id = 1;
@@ -117,6 +117,51 @@ namespace UKParliament.CodeTest.Tests
             Assert.Equal("Alex", person.Name);
             Assert.Equal("England", person.Address);
             Assert.Equal(1, person.Id);
+        }
+        
+        [Fact]
+        public async Task Update_UpdatePerson_OkResult()
+        {
+            // Arrange
+            const int id = 1;
+            var personViewModel = new PersonViewModel { Address = "England", DateOfBirth = new DateOnly(1992, 10, 7), Name = "Alex" };
+            var person = new Person { Address = "England", DateOfBirth = new DateOnly(1992, 10, 7), Id = 1, Name = "Alex" };
+
+            A.CallTo(() => _personService.Edit(person)).Returns(true);
+            
+            // Act
+            var actionResult = await _personController.Update(id, personViewModel);
+            var okResult = actionResult as OkObjectResult;
+            
+            // Assert
+            A.CallTo(() => _personService.Edit(A<Person>.Ignored)).MustHaveHappened();
+            
+            Assert.NotNull(okResult);
+            Assert.NotNull(okResult.Value);
+            
+            Assert.Equivalent(new { message = "Person updated" }, okResult.Value);
+        }
+        
+        [Fact]
+        public async Task Post_CreatePerson_OkResult()
+        {
+            // Arrange
+            var personViewModel = new PersonViewModel { Address = "England", DateOfBirth = new DateOnly(1992, 10, 7), Name = "Alex" };
+            var person = new Person { Address = "England", DateOfBirth = new DateOnly(1992, 10, 7), Id = 1, Name = "Alex" };
+
+            A.CallTo(() => _personService.Create(person)).Returns(true);
+            
+            // Act
+            var actionResult = await _personController.Post(personViewModel);
+            var okResult = actionResult as OkObjectResult;
+            
+            // Assert
+            A.CallTo(() => _personService.Create(A<Person>.Ignored)).MustHaveHappened();
+            
+            Assert.NotNull(okResult);
+            Assert.NotNull(okResult.Value);
+            
+            Assert.Equivalent(new { message = "Person created" }, okResult.Value);
         }
     }
 }

@@ -1,47 +1,30 @@
 <div class="welcome">
-  <h1>UK Parliament - Software Engineering</h1>
-  <p>Thanks for taking the time to do our recruitment home exercise</p>
+  <h1>Alex Aimson coding test</h1>
+  <p>Thanks for taking the time to review my take home exercise</p>
+  <p>Below is an overview of what I have done</p>
+  <a routerLink="/persons">Link to Person manager component</a>
 </div>
 
-<h2>Overview</h2>
-<p>We'd like you to make a (very!) small person manager app - it doesn't have to be complicated!</p>
-
-<h2>Project</h2>
-<p>We've setup a template project for you. It includes:</p>
+<h2>What I have done</h2>
 <ul>
-  <li>An Angular frontend embedded in a .Net web application (All UI components should be implemented in Angular)</li>
-  <li>The beginning of an API - A person API controller exists for you, and the proxy.config has been set for the /api route. See home.component.ts for an example of calling the API</li>
-  <li>Services assembly - To contain any services you might require</li>
-  <li>Data assembly - Houses the in-memory database context and a simple person model</li>
-  <li>Test assembly - For tests!</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> Extend the person model in the data assembly to include some other properties such as DateOfBirth and Address, as well as anything else you'd like to add</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> Remove / rename the home component and replace it with your own set of semantically meaningful components</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> Display a list of people</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> People in the list can be selected and load into a simple editor</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> An editor is available next to the list - All properties should be editable (apart from Id!)</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> Allow new people to be added to the list</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> Add the ability to save updates to existing people</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> When a user saves a person record, persist this in the in-memory database. (No need for a real relational backend)</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> If you'd like to you could add other functionality, such as the ability to delete a person etc, but this isn't required</li>
+  <li><input class="form-check-input" type="checkbox" value="" checked> Please play consideration to the visual design of the finished product</li>
 </ul>
 
-<h2>Expected completed solution</h2>
-<p>What should the finished exercise look like?</p>
-<p>When you've finished this exercise these instructions should be gone. In their place should be a very simple person management app:</p>
-<p>Please remove the home component and add your own components, or if you prefer, use routing to provide a link to go to your person manager app page</p>
-<p>The application should:</p>
+<h2>Potential improvements</h2>
 <ul>
-  <li>Show a list of people</li>
-  <li>Allow the person to be loaded into an editor which could sit to the side of the list</li>
-  <li>Allow a user to  update the person properties and save them</li>
-  <li>Allow a user to add more people to the list</li>
+  <li>Refactor angular calls to a data service</li>
+  <li>Switch to use a more persistent data source</li>
+  <li>Angular tests</li>
+  <li>Use Microsoft test host to test the endpoints</li>
+  <li>Use docker to spin up databases</li>
+  <li>Improve angular look/feel, angular material</li>
 </ul>
-<p>More detailed instructions are below</p>
-
-
-<h2>Detailed instructions</h2>
-<p>To complete this exercise please modify this solution and do the following:</p>
-<ul>
-  <li>Extend the person model in the data assembly to include some other properties such as DateOfBirth and Address, as well as anything else you'd like to add</li>
-  <li>Remove / rename the home component and replace it with your own set of semantically meaningful components</li>
-  <li>Display a list of people</li>
-  <li>People in the list can be selected and load into a simple editor</li>
-  <li>An editor is available next to the list - All properties should be editable (apart from Id!)</li>
-  <li>Allow new people to be added to the list</li>
-  <li>Add the ability to save updates to existing people</li>
-  <li>When a user saves a person record, persist this in the in-memory database. (No need for a real relational backend)</li>
-  <li>If you'd like to you could add other functionality, such as the ability to delete a person etc, but this isn't required</li>
-  <li>Please play consideration to the visual design of the finished product</li>
-</ul>
-
